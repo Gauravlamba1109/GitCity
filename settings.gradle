@@ -1,0 +1,12 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+        maven { url "https://maven.xyz.com" }
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+rootProject.name = "GitHouse"
+include ':app'
