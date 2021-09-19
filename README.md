@@ -1,5 +1,6 @@
 # GitCity
 Github users from your city
+Used Retofit(for API) and Picasso(for images)  and SwipeRefreshLayout(for updating info)
 <p float="left">
   <img src="https://github.com/Gauravlamba1109/GitCity/blob/master/ss/gc1.jpeg" width="270" />
   <img src="https://github.com/Gauravlamba1109/GitCity/blob/master/ss/gc2.jpeg" width="270" /> 
