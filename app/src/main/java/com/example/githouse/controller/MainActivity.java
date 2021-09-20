@@ -1,5 +1,6 @@
 package com.example.githouse.controller;
 
+import static com.example.githouse.api.Client.BASE_URL;
 import static com.example.githouse.api.Client.retrofit;
 
 import androidx.annotation.NonNull;
@@ -31,6 +32,7 @@ import com.example.githouse.model.ItemResponse;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    public static String input;
 
     private RecyclerView recyclerView;
     TextView Disconnected;
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        input="/search/users?q=location:Delhi";
         initViews();
 
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             Client Client=new Client();
             Service apiService =
                     Client.getClient().create(Service.class);
-            Call<ItemResponse>call=apiService.getItems();
+            Call<ItemResponse>call=apiService.getItems(input);
             call.enqueue(new Callback<ItemResponse>() {
                 @Override
                 public void onResponse(Call<ItemResponse> call, Response<ItemResponse> response) {
@@ -93,5 +95,13 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,e.toString(),Toast.LENGTH_LONG).show();
 
         }
+    }
+
+    public void updateinput(View view) {
+        final EditText text = findViewById(R.id.edittextfield);
+        input=text.getText().toString();
+        if(input.length()==0)return;
+        input=BASE_URL+"/search/users?q="+input ;
+        initViews();
     }
 }

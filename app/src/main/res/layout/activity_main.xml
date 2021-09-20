@@ -6,48 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".controller.MainActivity"
     android:orientation="vertical">
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal">-->
-<!--        <EditText-->
-<!--            android:layout_marginTop="4dp"-->
-<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
-<!--            android:id="@+id/editText2"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:ems="10"-->
-<!--            android:hint="Enter Your Github username to get Data !"-->
-<!--            android:inputType="textPersonName" />-->
 
-<!--        <Button-->
-<!--            android:id="@+id/btnGetData"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:text="Get data"-->
-<!--            android:textColor="@color/design_default_color_background" />-->
-<!--    </LinearLayout>-->
-
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swiperefresh"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1.2">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvList"
-            android:layout_width="match_parent"
-            android:backgroundTint="#f2f2f2"
-            tools:context=".controller.Mainactivity"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/disconnected"
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/edittextfield"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="no internet connected"
-            android:textStyle="bold"
-            android:textSize="30sp"/>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+            android:layout_marginTop="4dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Enter Your Github username to get Data !"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/getdatabutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:onClick="updateinput"
+            android:text="Button"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swiperefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvList"
+                android:layout_width="match_parent"
+                android:backgroundTint="#f2f2f2"
+                tools:context=".controller.Mainactivity"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/disconnected"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="no internet connected"
+                android:textStyle="bold"
+                android:textSize="30sp"/>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
