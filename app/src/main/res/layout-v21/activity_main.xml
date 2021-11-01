@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
             android:onClick="updateinput"
-            android:text="Button"
+            android:text="Search"
             android:textAppearance="@style/TextAppearance.AppCompat.Small" />
     </LinearLayout>
     <LinearLayout
